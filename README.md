@@ -9,10 +9,11 @@ Instead of relying on rigid, restrictive blocklists, this architecture focuses o
 The pipeline functions as an automated end-to-end data funnel divided into four distinct phases:
 
 1. **Traffic Capture & Interception:** household Wi-Fi traffic is monitored via a proxy configuration (you can use postman or manually configured proxy) using SSL bumping/decryption to intercept secure YouTube endpoint frames.
-   * *Infrastructure evolution:* the baseline architectural proof-of-concept was engineered from scratch by manually compiling a custom proxy instance to handle low-level network packet routing, port forwarding, and raw SSL decryption tables. For accelerated testing and reproduction of this code, an automated proxy client (e.g., Postman) can be used as the capturing layer - i, personally, prefer the former for its high scalability & infrastructure depth
-3. **Log Extraction & Indexing (ETL):** key communication logs are captured, stripped down to specific network identifiers (including unique YouTube Video IDs), and securely streamed into an Elasticsearch cluster.
-4. **Metadata Harvesting & Enrichment:** an automated Python workflow extracts the staged IDs, queries the YouTube Data API for rich video metadata, and dynamically retriebe raw closed-caption text fields.
-5. **Safety Risk Classification (NLP):** enriched text structures undergo tokenization, lexicon analysis, and sentiment evaluation before passing into machine learning classifiers to isolate violent, explicit, or abusive content.
+   * *Infrastructure evolution:* the baseline architectural proof-of-concept was engineered from scratch by compiling a custom proxy instance to handle low-level network packet routing, port forwarding, and raw SSL decryption tables. For accelerated testing and reproduction of this code, an automated proxy client (e.g., Postman) can be used as the capturing layer - i, personally, prefer the former for its high scalability & infrastructure depth
+
+2. **Log Extraction & Indexing (ETL):** key communication logs are captured, stripped down to specific network identifiers (including unique YouTube Video IDs), and securely streamed into an Elasticsearch cluster.
+3. **Metadata Harvesting & Enrichment:** an automated Python workflow extracts the staged IDs, queries the YouTube Data API for rich video metadata, and dynamically retriebe raw closed-caption text fields.
+4. **Safety Risk Classification (NLP):** enriched text structures undergo tokenization, lexicon analysis, and sentiment evaluation before passing into machine learning classifiers to isolate violent, explicit, or abusive content.
 
 
 ## Files Structure
