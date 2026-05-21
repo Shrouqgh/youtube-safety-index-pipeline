@@ -1,2 +1,3 @@
 # YouTube Safety Index: Traffic Interception & Ingestion Pipeline
- Setting up a Squid proxy for MITM on local Wi-Fi to monitor YouTube traffic.
+
+ A real-time network traffic interception, ETL ingestion, and NLP classification pipeline designed to monitor streaming logs and flag unsafe online content via optimized deep learning transformers.
